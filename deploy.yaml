@@ -1,0 +1,18 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: pyamqppgconsumer
+spec:
+  selector:
+    matchLabels:
+      app: pyamqppgconsumer
+  replicas: 6 # tells deployment to run 2 pods matching the template
+  template:
+    metadata:
+      labels:
+        app: pyamqppgconsumer
+    spec:
+      containers:
+      - name: pyamqppgconsumer
+        image: yop038/pyamqppgconsumer:latest
+        imagePullPolicy: Always
